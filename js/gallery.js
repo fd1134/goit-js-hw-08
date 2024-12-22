@@ -73,11 +73,11 @@ function createGalleryItem(images) {
     liItem.classList.add("gallery-item");
     const a = document.createElement("a");
     a.classList.add("gallery-link");
-    a.setAttribute("href", original.slice(1, -1));
+    a.setAttribute("href", cleanUrl(original));
     const img = document.createElement("img");
     img.classList.add("gallery-image");
-    img.setAttribute("src", preview.slice(1, -1));
-    img.dataset.source = original.slice(1, -1);
+    img.setAttribute("src",cleanUrl(original));
+    img.dataset.source =cleanUrl(original) ;
     img.setAttribute("alt", description);
     liItem.append(a);
     a.append(img);
@@ -103,3 +103,10 @@ gallery.addEventListener("click", (event) => {
     }
   });
 });
+function cleanUrl(url) {
+  
+  if (url.startsWith("<") && url.endsWith(">")) {
+    return url.slice(1, -1); 
+  }
+  return url; 
+}
