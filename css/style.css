@@ -1,0 +1,16 @@
+ul {
+  list-style-type: none;
+}
+img {
+  width: 100%;
+  display: block;
+}
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: auto 40px;
+}
+.gallery-item {
+  flex: 1 1 calc(33.33% - 60px);
+}
